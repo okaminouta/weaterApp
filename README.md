@@ -1,4 +1,4 @@
-# `Подольский Е. https://okaminouta.github.io/weaterApp/`
+# `Подольский Е. ` https://okaminouta.github.io/weaterApp/
 
 
 # `angular-seed` — the seed for AngularJS apps
