@@ -1,0 +1,32 @@
+<md-content class="md-padding">
+    <md-content class="md-padding" >
+        <div>
+            <h1 class="md-title">Pick an information below</h1>
+            <div layout="row">
+                <md-input-container>
+                    <label>Month</label>
+                    <md-select ng-model="selectedItem" md-selected-text="getSelectedText()">
+                        <md-optgroup label="Month">
+                            <md-option ng-value="item" ng-repeat="item in items">{{item}}</md-option>
+                        </md-optgroup>
+                    </md-select>
+                </md-input-container>
+                <md-input-container>
+                    <label>Items</label>
+                    <md-select ng-model="selectedItem1" md-selected-text="getSelectedText1()">
+                        <md-optgroup label="items">
+                            <md-option ng-value="item1" ng-repeat="item1 in items1">{{item1}}</md-option>
+                        </md-optgroup>
+                    </md-select>
+                </md-input-container>
+                <div class="addGarphBtn">
+                    <md-button class="md-raised md-primary" ng-click="generatorGrafics()">Draw a graph</md-button>
+                </div>
+            </div>
+        </div>
+        <canvas id="line" class="chart chart-line" chart-data="data"
+                chart-labels="labels" chart-series="series" chart-options="options"
+                chart-dataset-override="datasetOverride" chart-click="onClick">
+        </canvas>
+    </md-content>
+</md-content>

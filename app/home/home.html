@@ -1,0 +1,30 @@
+<div ng-cloak>
+    <md-toolbar class="md-warn">
+        <div class="md-toolbar-tools">
+            <h2 class="md-flex">Weater information</h2>
+            <div class="currentLocation"><h2>Current location: </h2>
+                <p>country: {{country}}</p>
+                <p>city: {{city}}</p></div>
+        </div>
+    </md-toolbar>
+    <div class="searchInput">
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>Enter the name of the city</label>
+            <input ng-model="cityName">
+        </md-input-container>
+    </div>
+    <div class="bodyContent">
+        <md-content>
+            <div ng-controller="nutritionController">
+                <md-tabs md-dynamic-height md-border-bottom>
+                    <md-tab label="text information">
+                        <mytable></mytable>
+                    </md-tab>
+                    <md-tab label="graphs">
+                        <graphs></graphs>
+                    </md-tab>
+                </md-tabs>
+            </div>
+        </md-content>
+    </div>
+</div>

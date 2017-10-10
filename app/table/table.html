@@ -1,0 +1,59 @@
+<div>
+    <div class="dataHeaders">
+        <h2>{{informationHeaders[0]}}</h2>
+        <h3>{{informationHeaders[1]}}</h3>
+
+        <h5>{{informationHeaders[2]}}{{informationHeaders[3]}}{{informationHeaders[4]}}</h5>
+    </div>
+    <md-input-container class="md-block" flex-gt-sm>
+        <label>Search information</label>
+        <input ng-model="fltr">
+    </md-input-container>
+    <md-content class="md-padding paddingO">
+        <md-content laout="column" flex>
+            <md-table-container>
+                <table md-table
+                       ng-model="selected" md-progress="promise">
+                    <thead ng-if="!options.decapitate" md-head md-order="query.order"
+                           md-on-reorder="logOrder">
+                    <tr md-row>
+                        <th md-column md-order-by="year"><span>Year</span></th>
+                        <th md-column md-order-by="month"><span>Month</span></th>
+                        <th md-column md-numeric md-order-by="tmax" md-desc><span>Max temperature (degC)</span>
+                        </th>
+                        <th md-column md-numeric md-order-by="tmin">
+                            <span>Min temerature (degC)</span></th>
+                        <th md-column md-numeric md-order-by="afdays"><span>Af days</span></th>
+                        <th md-column md-numeric md-order-by="rainmm"><span>Rain (mm)</span>
+                        </th>
+                        <th md-column md-numeric md-order-by="sunhrs" hide-gt-xs show-gt-md>
+                            <span>Sun hours</span></th>
+
+                        <th md-column md-order-by="prov">
+                            <span>Prov</span>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody md-body>
+                    <tr md-row
+                        ng-repeat="item in finalInf | filter: fltr | orderBy: query.order  | limitTo: query.limit : (query.page -1) * query.limit">
+                        <td md-cell>{{item.year}}</td>
+                        <td md-cell>{{item.month}}</td>
+                        <td md-cell>{{item.tmax}}</td>
+                        <td md-cell>{{item.tmin}}</td>
+                        <td md-cell>{{item.afdays}}</td>
+                        <td md-cell>{{item.rainmm}}</td>
+                        <td md-cell>{{item.sunhrs}}</td>
+                        <td md-cell>{{item.prov}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </md-table-container>
+            <md-table-pagination md-limit="query.limit" md-limit-options="[5, 10, 15, 25]"
+                                 md-page="query.page"
+                                 md-total="{{finalInf.length}}" md-page-select="options.pageSelect"
+                                 md-boundary-links="options.boundaryLinks"
+                                 md-on-paginate="logPagination"></md-table-pagination>
+            </md-card>
+        </md-content>
+</div>
